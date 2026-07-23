@@ -1813,3 +1813,60 @@ ls
 - Write a bash script that creates a security group (outbound: all traffic anywhere, inbound: SSH anywhere), attaches it to an instance, and shows a table of Instance ID, public DNS and instance name.
 - Write a bash script that creates a Key Pair, downloads it, makes it read-only, creates a security group and launches an instance using both.
 - Write a bash script to find the latest Ubuntu LTS AMI ID released by Canonical and create an EC2 instance using it.
+
+
+<br>
+
+<hr style="height: 5px; border: none; background-color: #555; margin: 40px 0;" />
+
+### Day 11
+
+# AWS Storage
+
+## Block Storage
+
+Block Storage or Volumes are contiguous memory locations that can be used as standard secondary memory storage.
+
+Example: **Elastic Block Store (EBS)**
+
+## Amazon S3
+
+There are two main concepts in S3: **Objects** and **Buckets**.
+
+### Object
+
+- An object is an individual file that can be of any type.
+- An object is the smallest unit of storage in S3.
+- An object can only be stored inside a bucket.
+
+### Bucket
+
+- A bucket is an S3 container that stores objects.
+- By default, buckets are private.
+- In S3, bucket names must be globally unique.
+
+## ACL (Access Control List)
+
+The ACL for a bucket defines the ownership of the bucket and also determines who can access what.
+
+- If bucket access is opened for users, the bucket can be used to host a static website.
+- Bucket Versioning is a feature of a bucket according to which every updated object in that bucket gets a version number.
+
+## Bucket Policy
+
+- A bucket policy is a group of statements that defines how a bucket can be accessed.
+- The hosted website in S3 is exposed through an S3 endpoint.
+
+## Assignment
+
+- Write a bash script to create an S3 bucket, attach a bucket policy to it, and upload 3 different files into the bucket.
+- Write a bash script to create 2 files: `error.html` and `index.html`, create a bucket, upload the files, and host a static website on the bucket.
+
+## Security Notes
+
+- Credentials and other sensitive information should be stored in secrets.
+- AWS Secrets Manager is used to store and manage secrets.
+
+Flow of security:
+
+`Secret -> Roles -> MFA -> CSV`
