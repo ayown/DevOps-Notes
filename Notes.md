@@ -1870,3 +1870,62 @@ The ACL for a bucket defines the ownership of the bucket and also determines who
 Flow of security:
 
 `Secret -> Roles -> MFA -> CSV`
+
+
+<br>
+
+<hr style="height: 5px; border: none; background-color: #555; margin: 40px 0;" />
+
+### Day 12 & 13
+
+# Networking: Subnetting, VPC, DNS and Web Servers
+
+## Subnetting
+
+Subnetting is the process of dividing a larger network into smaller networks by borrowing bits from the host portion of an IP address. It isolates networks so that smaller public and private networks can be created from a larger network.
+
+## VPC (Virtual Private Cloud)
+
+- A VPC is a logically isolated virtual network inside a public cloud provider's network.
+- It lets each customer use a private network that is isolated from other customers, even when they use the same cloud provider.
+- A VPC is assigned a CIDR range, which represents its IP address range.
+- A VPC can be divided into subnets. Each subnet is associated with a route table.
+- A VPC can connect to the internet using an Internet Gateway or, for outbound access from private subnets, a NAT Gateway.
+- Public subnets route internet traffic through an Internet Gateway.
+- Private subnets can reach the internet through a NAT Gateway without accepting unsolicited inbound connections from the internet.
+- Two VPCs can communicate with each other using VPC peering.
+
+### Public and Private Subnets
+
+- Instances in a public subnet can be assigned public IP addresses and can communicate with the internet through an Internet Gateway when the route table permits it.
+- Instances in a private subnet do not need public IP addresses. They are not directly reachable from the internet, but can make outbound IPv4 connections through a NAT Gateway.
+
+### Egress-Only Internet Gateway
+
+An egress-only Internet Gateway is a highly available VPC component that allows IPv6 outbound traffic from instances in a VPC to the internet while preventing the internet from initiating IPv6 connections to those instances. It supports IPv6 only; it does not support IPv4.
+
+## DNS
+
+DNS is a directory that maps DNS names to their corresponding IP addresses.
+
+## Web Server
+
+- A web server is a dedicated server that hosts and serves web pages. When a client requests a web page through a browser, the web server returns the requested content.
+- A website can be replicated across multiple web servers to improve availability and redundancy.
+- Multiple web servers can sit behind a reverse proxy. The reverse proxy accepts client requests and forwards each request to an appropriate web server.
+- A reverse proxy can also perform load balancing. Common reverse-proxy web servers include Nginx and Apache HTTP Server.
+- With a forward proxy, the destination server sees the proxy's address rather than the client's address, unless client information is forwarded explicitly.
+- Web servers behind a reverse proxy commonly communicate with it over private IP addresses.
+
+## Bastion Host
+
+A bastion host is a hardened server placed in a public subnet that provides controlled administrative access, such as SSH, to resources in private subnets. It reduces the need to expose private instances directly to the internet.
+
+## Assignments
+
+- What is an egress-only Internet Gateway?
+- Write a Bash script to create a VPC and divide it into two subnets. Create and attach an Internet Gateway and a NAT Gateway. Create route tables and routes from the public subnet to the Internet Gateway and from the private subnet to the NAT Gateway.
+- What are the differences between a private subnet and a public subnet?
+- What is NAT, and how does it help set up private subnets?
+- Configure a system as a reverse proxy using Nginx.
+- What is a bastion host, and why is it used?
