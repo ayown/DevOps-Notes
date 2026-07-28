@@ -1941,7 +1941,7 @@ User data can be provided in two ways:
 
 ### Assignments
 
-- Use a Bash script to create two web servers.
+- Use a Bash script to create two web servers. The two VPCs should communicate with each other using VPC peering.
 
 ## Systems Manager
 
