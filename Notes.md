@@ -1929,3 +1929,24 @@ A bastion host is a hardened server placed in a public subnet that provides cont
 - What is NAT, and how does it help set up private subnets?
 - Configure a system as a reverse proxy using Nginx.
 - What is a bastion host, and why is it used?
+
+## Bootstrapping an Instance with User Data
+
+When launching an EC2 instance, you can provide a set of instructions through EC2 User Data. These instructions perform common automated configuration tasks and are executed automatically when the instance starts.
+
+User data can be provided in two ways:
+
+- Bash scripts
+- Cloud-init directives
+
+### Assignments
+
+- Use a Bash script to create two web servers.
+
+## Systems Manager
+
+Sometimes developers are not given direct SSH access to an instance. They can still make changes to the instance remotely using AWS Systems Manager.
+
+### Assignments
+
+- An EC2 instance's SSH keys have been lost. Give two ways in which the instance can be accessed.
